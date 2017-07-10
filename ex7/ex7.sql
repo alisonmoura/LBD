@@ -44,7 +44,7 @@ CREATE VIEW view_empregados_ordenados_por_departamento
 -- EXERCÍCIO 6
 --
 CREATE VIEW view_empregados_ordenados_por_horas_trabalhadas
-	AS SELECT e.pnome,SUM(t.horas) as horas FROM empregado e
+	AS SELECT e.pnome, e.ssn, SUM(t.horas) as horas FROM empregado e
 	INNER JOIN trabalha_em t ON t.essn=e.ssn
 	WHERE t.horas > 0
 	GROUP BY e.pnome ORDER BY horas DESC;
